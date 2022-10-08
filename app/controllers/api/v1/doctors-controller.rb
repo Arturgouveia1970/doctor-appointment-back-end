@@ -8,7 +8,7 @@ class Api::V1::DoctorsController < ApplicationController
     @doctor = Doctor.includes(:reservations).find(params[:id])
     @reservations = @doctor.reservations.order(created_at: :desc)
     render json: { status: 'Success', message: 'loaded doctor', doctor: @doctor, reservations: @reservations },
-             status: :ok
+            status: :ok
   end
 
   def create
@@ -17,12 +17,12 @@ class Api::V1::DoctorsController < ApplicationController
       render json: {
         message: 'Doctor added successfully'
       }, status: :created
-      else
+    else
         render json: {
           message: 'something went wrong'
         }, status: :unprocessable_entity
-      end
     end
+  end
 
   def destroy
     @doctor = Doctor.find(params[:id])
@@ -43,7 +43,7 @@ class Api::V1::DoctorsController < ApplicationController
   end
 
   private
-  
+
   def doctor_params
     params.require(:doctor).permit(:name, :price, :description, :country, :city, :address, :image_url)
   end
