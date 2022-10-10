@@ -1,12 +1,9 @@
 class Doctor < ApplicationRecord
   has_many :reservations, dependent: :destroy
-  has_many :users, through: :reservations
-  belongs_to :category
+  belongs_to :users, class_name: 'User', foreign_key: 'user_id'
   validates :name, presence: true
-  validates :price, presence: true
-  validates :description, presence: true
-  validates :country, presence: true
-  validates :city, presence: true
-  validates :address, presence: true
+  validates :location, presence: true
   validates :image_url, presence: true
+  validates :speciality, presence: true
+  validates :email, presence: true, uniqueness: true
 end
