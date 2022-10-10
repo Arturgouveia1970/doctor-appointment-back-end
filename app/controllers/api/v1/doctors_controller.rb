@@ -5,9 +5,9 @@ class Api::V1::DoctorsController < ApplicationController
   end
 
   def show
-    @doctor = Doctor.includes(:reservations).find(params[:id])
-    @reservations = @doctor.reservations.order(created_at: :desc)
-    render json: { status: 'Success', message: 'loaded doctor', doctor: @doctor, reservations: @reservations },
+    @doctor = Doctor.includes(:appointments).find(params[:id])
+    @appointments = @doctor.appointments.order(created_at: :desc)
+    render json: { status: 'Success', message: 'loaded doctor', doctor: @doctor, appointments: @appointments },
            status: :ok
   end
 
@@ -45,6 +45,6 @@ class Api::V1::DoctorsController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name, :price, :description, :country, :city, :address, :image_url)
+    params.require(:doctor).permit(:name, :speciality, :email, :location, :image_url, :user_id)
   end
 end
