@@ -30,9 +30,7 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   def destroy
-    if @appointment.destroy
-      render json: { message: "#{@appointment.appointment_date} appointment deleted successfully" }
-    end
+    render json: { message: "#{@appointment.appointment_date} appointment deleted successfully" } if @appointment.destroy
   end
 
   private
