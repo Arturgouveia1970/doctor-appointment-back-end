@@ -25,7 +25,7 @@ class Api::V1::SpecialistsController < ApplicationController
     end
   end
 
-    # PATCH/PUT /specialists/1
+  # PATCH/PUT /specialists/1
   def update
     if @speciality.update(speciality_params)
       render json: @speciality
