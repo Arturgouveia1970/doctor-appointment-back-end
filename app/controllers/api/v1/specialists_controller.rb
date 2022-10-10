@@ -1,4 +1,4 @@
-class Api::V1::specialistsController < ApplicationController
+class Api::V1::SpecialistsController < ApplicationController
   before_action :set_speciality, only: %i[show update destroy]
   # before_action :authenticate_user
 
