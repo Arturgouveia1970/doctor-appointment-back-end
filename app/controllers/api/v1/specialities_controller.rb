@@ -1,22 +1,22 @@
-class Api::V1::SpecialistsController < ApplicationController
+class Api::V1::SpecialitiesController < ApplicationController
   before_action :set_speciality, only: %i[show update destroy]
   # before_action :authenticate_user
 
   # GET /specialists
   def index
-    @specialists = speciality.all
+    @specialities = Speciality.all
 
-    render json: specialists
+    render json: @specialities, status: :ok
   end
 
   # GET /specialists/1
   def show
-    render json: @speciality
+    render json: @speciality, status: :ok
   end
 
   # POST /specialists
   def create
-    @speciality = speciality.new(speciality_params)
+    @speciality = Speciality.new(speciality_params)
 
     if @speciality.save
       render json: @speciality, status: :created, location: @speciality
@@ -43,11 +43,13 @@ class Api::V1::SpecialistsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_speciality
-    @speciality = speciality.find(params[:id])
+    @speciality = Speciality.find(params[:id])
+
+    render json: { errors: 'Speciality not found' }, status: :not_found
   end
 
   # Only allow a list of trusted parameters through.
   def speciality_params
-    params.require(:speciality).permit(:name, :description, :rating)
+    params.require(:speciality).permit(:name, :description, :doctor_id)
   end
 end

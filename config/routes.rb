@@ -5,10 +5,20 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :users, only: [:index, :show, :edit, :create, :update, :destroy, :hotels] do   
-        
-      end
-       
+      resources :users, only: [:index, :show, :edit, :create, :update, :destroy, :hotels] do
+        resources :specialities do
+          get 'doctors' => 'specialities#doctors'
+        end
+        resources :doctors do
+          resources :appointments
+        end  
+      end       
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :appointments, only: [:index]
     end
   end
   # Defines the root path route ("/")
