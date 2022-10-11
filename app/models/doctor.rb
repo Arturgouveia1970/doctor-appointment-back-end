@@ -1,5 +1,5 @@
 class Doctor < ApplicationRecord
-  has_many :reservations, dependent: :destroy
+  has_many :appointments, dependent: :destroy
   belongs_to :users, class_name: 'User', foreign_key: 'user_id'
   validates :name, presence: true
   validates :location, presence: true
