@@ -48,7 +48,7 @@ group :development do
   # gem "spring"
 end
 
-gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rswag'
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'rubocop', '>= 1.0', '< 2.0'

@@ -2,9 +2,7 @@
 require 'swagger_helper'
 
 describe 'Blogs API' do
-
   path '/blogs' do
-
     post 'Creates a blog' do
       tags 'Blogs'
       consumes 'application/json'
@@ -14,7 +12,7 @@ describe 'Blogs API' do
           title: { type: :string },
           content: { type: :string }
         },
-        required: [ 'title', 'content' ]
+        required: %w[title content]
       }
 
       response '201', 'blog created' do
@@ -30,7 +28,6 @@ describe 'Blogs API' do
   end
 
   path '/blogs/{id}' do
-
     get 'Retrieves a blog' do
       tags 'Blogs', 'Another Tag'
       produces 'application/json', 'application/xml'
@@ -38,12 +35,12 @@ describe 'Blogs API' do
 
       response '200', 'blog found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-            title: { type: :string },
-            content: { type: :string }
-          },
-          required: [ 'id', 'title', 'content' ]
+               properties: {
+                 id: { type: :integer },
+                 title: { type: :string },
+                 content: { type: :string }
+               },
+               required: %w[id title content]
 
         let(:id) { Blog.create(title: 'foo', content: 'bar').id }
         run_test!
@@ -55,7 +52,7 @@ describe 'Blogs API' do
       end
 
       response '406', 'unsupported accept header' do
-        let(:'Accept') { 'application/foo' }
+        let(:Accept) { 'application/foo' }
         run_test!
       end
     end
