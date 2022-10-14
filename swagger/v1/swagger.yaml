@@ -136,6 +136,110 @@ paths:
       responses:
         '200':
           description: successful
+  "/api/v1/specialities":
+    get:
+      summary: list specialities
+      tags:
+      - Specialities
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create speciality
+      tags:
+      - Specialities
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              - description
+  "/api/v1/specialities/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit speciality
+      responses:
+        '200':
+          description: successful
+  "/api/v1/specialities/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show speciality
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update speciality
+      tags:
+      - Specialities
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              - description
+    put:
+      summary: update speciality
+      tags:
+      - Specialities
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              - description
+    delete:
+      summary: delete speciality
+      tags:
+      - speciality
+      responses:
+        '200':
+          description: successful
   "/blogs":
     post:
       summary: Creates a blog
@@ -212,4 +316,4 @@ servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: 127.0.0.1:3000/
+      default: www.example.com
