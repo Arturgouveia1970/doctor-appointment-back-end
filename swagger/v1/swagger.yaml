@@ -136,6 +136,104 @@ paths:
       responses:
         '200':
           description: successful
+  "/api/v1/doctors":
+    get:
+      summary: list doctors
+      tags:
+      - Doctors
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create doctor
+      tags:
+      - Doctors
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                speciality:
+                  type: string
+                email:
+                  type: string
+                location:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - speciality
+              - location
+              - email
+              - user_id
+              - image_url
+  "/api/v1/doctors/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show doctor
+      tags:
+      - Doctors
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update doctor
+      tags:
+      - Doctors
+      parameters: []
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update doctor
+      tags:
+      - Doctors
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                speciality:
+                  type: string
+                email:
+                  type: integer
+                location:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - speciality
+              - email
+              - location
+              - user_id
+              - image_url
+    delete:
+      summary: delete doctor
+      responses:
+        '200':
+          description: successful
   "/blogs":
     post:
       summary: Creates a blog
