@@ -1,0 +1,417 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/users/{user_id}/appointments":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list appointments
+      tags:
+      - Appointments
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create appointment
+      tags:
+      - Appointments
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment_date:
+                  type: date
+                city:
+                  type: string
+                duration:
+                  type: integer
+                user_id:
+                  type: bigint
+                doctor_id:
+                  type: bigint
+              required:
+              - apointment_date
+              - city
+              - user_id
+              - doctor_id
+  "/api/v1/users/{user_id}/appointments/{id}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show appointment
+      tags:
+      - Appointments
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update appointment
+      tags:
+      - Appointments
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment_date:
+                  type: date
+                city:
+                  type: string
+                duration:
+                  type: integer
+                user_id:
+                  type: bigint
+                doctor_id:
+                  type: bigint
+              required:
+              - appointment_date
+              - city
+              - duration
+              - user_id
+              - doctor_id
+    put:
+      summary: update appointment
+      tags:
+      - Appointments
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment_date:
+                  type: date
+                city:
+                  type: string
+                duration:
+                  type: integer
+                user_id:
+                  type: bigint
+                doctor_id:
+                  type: bigint
+              required:
+              - appointment_date
+              - city
+              - duration
+              - user_id
+              - doctor_id
+    delete:
+      summary: delete appointment
+      tags:
+      - Appointments
+      responses:
+        '200':
+          description: successful
+  "/api/v1/doctors":
+    get:
+      summary: list doctors
+      tags:
+      - Doctors
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create doctor
+      tags:
+      - Doctors
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                speciality:
+                  type: string
+                email:
+                  type: string
+                location:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - speciality
+              - location
+              - email
+              - user_id
+              - image_url
+  "/api/v1/doctors/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show doctor
+      tags:
+      - Doctors
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update doctor
+      tags:
+      - Doctors
+      parameters: []
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update doctor
+      tags:
+      - Doctors
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                speciality:
+                  type: string
+                email:
+                  type: integer
+                location:
+                  type: string
+                image_url:
+                  type: string
+              required:
+              - name
+              - speciality
+              - email
+              - location
+              - user_id
+              - image_url
+    delete:
+      summary: delete doctor
+      responses:
+        '200':
+          description: successful
+  "/api/v1/specialities":
+    get:
+      summary: list specialities
+      tags:
+      - Specialities
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create speciality
+      tags:
+      - Specialities
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              - description
+  "/api/v1/specialities/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit speciality
+      responses:
+        '200':
+          description: successful
+  "/api/v1/specialities/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show speciality
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update speciality
+      tags:
+      - Specialities
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              - description
+    put:
+      summary: update speciality
+      tags:
+      - Specialities
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              - description
+    delete:
+      summary: delete speciality
+      tags:
+      - speciality
+      responses:
+        '200':
+          description: successful
+  "/blogs":
+    post:
+      summary: Creates a blog
+      tags:
+      - Blogs
+      parameters: []
+      responses:
+        '201':
+          description: blog created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
+              required:
+              - title
+              - content
+  "/blogs/{id}":
+    get:
+      summary: Retrieves a blog
+      tags:
+      - Blogs
+      - Another Tag
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: blog found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  content:
+                    type: string
+                required:
+                - id
+                - title
+                - content
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  content:
+                    type: string
+                required:
+                - id
+                - title
+                - content
+        '404':
+          description: blog not found
+        '406':
+          description: unsupported accept header
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
