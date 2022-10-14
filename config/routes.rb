@@ -24,6 +24,13 @@ Rails.application.routes.draw do
       resources :appointments, only: [:index, :show, :edit, :create, :update, :destroy, :doctors]
     end
   end
+ 
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :specialities, only: [:index, :show, :edit, :create, :update, :destroy, :doctors]
+    end
+  end
+
   # Defines the root path route ("/")
   # root "articles#index"
 end
