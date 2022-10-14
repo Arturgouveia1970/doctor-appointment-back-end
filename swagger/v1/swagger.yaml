@@ -141,11 +141,6 @@ paths:
       summary: list doctors
       tags:
       - Doctors
-  "/api/v1/specialities":
-    get:
-      summary: list specialities
-      tags:
-      - Specialities
       responses:
         '200':
           description: successful
@@ -153,9 +148,6 @@ paths:
       summary: create doctor
       tags:
       - Doctors
-      summary: create speciality
-      tags:
-      - Specialities
       parameters: []
       responses:
         '200':
@@ -184,12 +176,6 @@ paths:
               - user_id
               - image_url
   "/api/v1/doctors/{id}":
-                description:
-                  type: string
-              required:
-              - name
-              - description
-  "/api/v1/specialities/{id}/edit":
     parameters:
     - name: id
       in: path
@@ -201,20 +187,6 @@ paths:
       summary: show doctor
       tags:
       - Doctors
-      summary: edit speciality
-      responses:
-        '200':
-          description: successful
-  "/api/v1/specialities/{id}":
-    parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
-    get:
-      summary: show speciality
       responses:
         '200':
           description: successful
@@ -230,9 +202,6 @@ paths:
       summary: update doctor
       tags:
       - Doctors
-      summary: update speciality
-      tags:
-      - Specialities
       parameters: []
       responses:
         '200':
@@ -262,6 +231,80 @@ paths:
               - image_url
     delete:
       summary: delete doctor
+      responses:
+        '200':
+          description: successful
+  "/api/v1/specialities":
+    get:
+      summary: list specialities
+      tags:
+      - Specialities
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create speciality
+      tags:
+      - Specialities
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              - description
+  "/api/v1/specialities/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit speciality
+      responses:
+        '200':
+          description: successful
+  "/api/v1/specialities/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show speciality
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update speciality
+      tags:
+      - Specialities
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
                 description:
                   type: string
               required:

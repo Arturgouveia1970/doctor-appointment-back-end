@@ -67,7 +67,7 @@ RSpec.describe 'api/v1/doctors', type: :request do
 
         let(:speciality_id) { speciality.id }
         let(:doctor) do
-          Doctor.create!(city: 'Luanda', duration: 1, user_id:, doctor_id:)
+          Doctor.create!(name: 'Jivago', location: 'Angola', speciality: 'Neurology', image_url: 'image.jpg')
         end
 
         let(:id) { doctor.id }
@@ -108,7 +108,7 @@ RSpec.describe 'api/v1/doctors', type: :request do
 
         let(:doctor_id) { doctor.id }
         let(:doctor) do
-          Doctor.create!(city: 'Luanda', duration: 1, user_id:, doctor_id:)
+          Doctor.create!(name: 'Jivago', location: 'Angola', speciality: 'Neurology', image_url: 'image.jpg')
         end
         let(:id) { appointment.id }
 
@@ -148,7 +148,7 @@ RSpec.describe 'api/v1/doctors', type: :request do
         end
         let(:doctor_id) { doctor.id }
         let(:doctor) do
-          Doctor.create!(city: 'Luanda', duration: 1, user_id:, doctor_id:)
+          Doctor.create!(name: 'Jivago', location: 'Angola', speciality: 'Neurology', image_url: 'image.jpg')
         end
         let(:id) { appointment.id }
 
