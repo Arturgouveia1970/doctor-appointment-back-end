@@ -229,7 +229,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4)
-  rspec-rails
+  rspec-rails (~> 5.1.2)
   rswag
   rswag-api
   rswag-specs
