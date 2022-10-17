@@ -1,6 +1,6 @@
 class Api::V1::SpecialitiesController < ApplicationController
   before_action :set_speciality, only: %i[show update destroy]
-  # before_action :authenticate_user
+  
 
   # GET /specialists
   def index
@@ -9,12 +9,12 @@ class Api::V1::SpecialitiesController < ApplicationController
     render json: @specialities, status: :ok
   end
 
-  # GET /specialists/1
+  # GET /specialities/1
   def show
     render json: @speciality, status: :ok
   end
 
-  # POST /specialists
+  # POST /specialities
   def create
     @speciality = Speciality.new(speciality_params)
 
@@ -25,7 +25,7 @@ class Api::V1::SpecialitiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /specialists/1
+  # PATCH/PUT /speciality/1
   def update
     if @speciality.update(speciality_params)
       render json: @speciality
@@ -34,7 +34,7 @@ class Api::V1::SpecialitiesController < ApplicationController
     end
   end
 
-  # DELETE /specialists/1
+  # DELETE /speciality/1
   def destroy
     @speciality.destroy
   end
