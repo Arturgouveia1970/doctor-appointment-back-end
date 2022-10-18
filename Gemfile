@@ -50,5 +50,5 @@ end
 gem 'rswag'
 gem 'rswag-api'
 gem 'rswag-ui'
-gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rspec-rails', '~> 5.1.2'
+gem 'rubocop', '>= 1.0', '< 2.0'

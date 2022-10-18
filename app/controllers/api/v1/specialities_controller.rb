@@ -1,6 +1,6 @@
 class Api::V1::SpecialitiesController < ApplicationController
   before_action :set_speciality, only: %i[show update destroy]
-  
+
 
   # GET /specialists
   def index
