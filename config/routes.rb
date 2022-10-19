@@ -31,7 +31,11 @@ Rails.application.routes.draw do
  
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :specialities, only: [:index, :show, :edit, :create, :update, :destroy, :doctors]
+      resources :specialities, only: [:index, :show, :edit, :create, :update, :destroy, :doctors] do
+        resources :doctors do
+          resources :appointments
+        end
+      end
     end
   end
 
