@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "b6b326e1-53fc-4fcd-bbe7-bf7a45507bbd",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/register/",
+    "url": "localhost:3000/register/",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-10-18T15:00:13.010Z",
+    "modified": "2022-10-18T15:03:05.411Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "name",
+          "value": "Tamara"
+        },
+        {
+          "name": "email",
+          "value": "tam@dev.co"
+        },
+        {
+          "name": "password",
+          "value": "1234567"
+        }
+      ]
+    },
+    "tests": []
+  }
+]

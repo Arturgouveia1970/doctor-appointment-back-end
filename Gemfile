@@ -48,6 +48,7 @@ group :development do
   # gem "spring"
 end
 
+gem 'hirb'
 gem 'rswag'
 gem 'rswag-api'
 gem 'rswag-ui'
