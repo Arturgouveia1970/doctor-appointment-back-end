@@ -3,11 +3,14 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.htmls
+  get 'login/:name', to: 'users#login'
+  get 'api/v1/users/doctor/:id', to: 'users#user_doctor'
+  post 'register', to: 'users#register'
 
-  namespace :api, defaults: {format: 'json'} do
+  namespace :api do
     namespace :v1 do
-      resources :users, only: [:index, :show, :edit, :create, :update, :destroy, :doctors] do
+      resources :users do
         resources :appointments
           
       end
@@ -19,9 +22,10 @@ Rails.application.routes.draw do
 
   end
 
-  namespace :api, defaults: {format: 'json'} do
+  namespace :api do
     namespace :v1 do
       resources :appointments, only: [:index, :show, :edit, :create, :update, :destroy, :doctors]
+      resources :specialities, only: [:index, :show, :edit, :create, :update, :destroy, :doctors]
     end
   end
  

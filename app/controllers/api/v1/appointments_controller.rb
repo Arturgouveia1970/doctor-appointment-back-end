@@ -13,7 +13,7 @@ class Api::V1::AppointmentsController < ApplicationController
   # POST
   def create
     @doctor = Doctor.find(params[:doctor_id])
-    @appointment = Appointment.new(appointment_params.merge(user: @user))
+    @appointment = Appointment.new(appointment_params)
     if @appointment.save
       render json: @appointment, status: :ok
     else
@@ -30,7 +30,12 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   def destroy
-    render json: { message: "#{@appointment.appointment_date} appointment deleted successfully" } if @appointment.destroy
+    @appointment = Appointment.find(params[:id])
+    if @appointment.destroy
+      render json: { message: ' appointment deleted successfully' }, status: :ok
+    else
+      render json: { errors: @appointment.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   private
