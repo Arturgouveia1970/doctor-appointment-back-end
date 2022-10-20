@@ -2,11 +2,18 @@
 # Doctors Appointment Back-End
 An API that provides endpoints for doctors-appointment-front-end
 
+## Desktop version
+![Desktop version 1](https://user-images.githubusercontent.com/90258833/197039118-6a815634-ebec-4105-bf20-5f4ccc2e74ec.PNG)
+
+## Mobile version
+![mobile version](https://user-images.githubusercontent.com/90258833/197039429-29b5b49f-18f2-420c-9ec5-3816cfe2bf87.PNG)
 
 ## Kanban Board
 [Kanban board link](https://github.com/users/SiansandaTamara/projects/9/views/1)
 
 Kanban board screenshot![kanban]![image](https://user-images.githubusercontent.com/94650066/194344342-8d64398e-1317-408b-bbc9-e8f0cea86e2a.png)
+
+Kanban board screenshot![kanban](https://user-images.githubusercontent.com/90258833/197033875-e6647b09-1b4b-4966-a153-5c961aca00a6.PNG)
 
 There are 2 members in this Group
 
