@@ -24,6 +24,7 @@ There are 2 members in this Group
 
 - Ruby
 - Ruby on Rails
+- PostgreSQL
   
  ## Live Demo
  ### [Front-end link](https://github.com/SiansandaTamara/doctor_appointment_frontend)

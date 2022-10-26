@@ -46,5 +46,5 @@ Clair = Doctor.create(
 appointments = Appointment.create(appointment_date: '12-12-2022', city: 'Moscow', duration: 1)
 appointments = Appointment.create(appointment_date: '22-12-2022', city: 'London', duration: 1)
 
-speciality = Speciality.create(name: 'Dentistry', description: 'Takes care of our teeth', doctor_id: 1)
-speciality = Speciality.create(name: 'Psychiatry', description: 'Takes care of our mind', doctor_id: 1)
+# speciality = Speciality.create(name: 'Dentistry', description: 'Takes care of our teeth', doctor_id:)
+# speciality = Speciality.create(name: 'Psychiatry', description: 'Takes care of our mind', doctor_id:)
